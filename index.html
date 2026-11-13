@@ -1,97 +1,19 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https: http://localhost:8787 http://127.0.0.1:8787; img-src 'self'; base-uri 'none'; form-action 'none'">
-  <title>Edge License Admin</title>
-  <link rel="stylesheet" href="./style.css">
-  <script type="module" src="./app.js"></script>
-</head>
-<body>
-  <header><div><p class="eyebrow">PRIVATE CONTROL PANEL</p><h1>Edge License Admin</h1></div><button id="logout" type="button">Disconnect</button></header>
-  <main>
-    <section>
-      <h2>Connection</h2>
-      <p>Enter your own API origin and admin key. The key stays in this tab's memory only. Verify the API address before connecting.</p>
-      <form id="connect">
-        <label>API origin<input id="api-origin" type="url" placeholder="https://site.com" required autocomplete="off"></label>
-        <label>Admin API key<input id="admin-key" type="password" required autocomplete="off" spellcheck="false"></label>
-        <button>Connect</button>
-      </form>
-    </section>
-    <p id="notice" role="status" aria-live="polite">Not connected.</p>
-    <div id="workspace" hidden>
-      <section>
-        <h2>Service</h2>
-        <div class="actions"><button id="refresh-status">Refresh status</button><button id="initialize">Initialize storage files</button></div>
-        <pre id="service-status"></pre>
-      </section>
-      <section>
-        <h2>Routing and maintenance</h2>
-        <form id="settings">
-          <label>/arch/gl destination<input id="arch-url" type="url" placeholder="https://downloads.example.com/app"></label>
-          <label class="check"><input id="maintenance" type="checkbox"> Enable maintenance mode</label>
-          <button>Save settings</button>
-        </form>
-        <p>Leave the destination empty to disable the public redirect. Protected files use /files/:id instead.</p>
-      </section>
-      <section>
-        <h2>Create license</h2>
-        <form id="create-license">
-          <label>Customer label<input name="label" required maxlength="120"></label>
-          <label>Product<input name="product" value="arch" required maxlength="80"></label>
-          <label>Device limit<input name="maxDevices" type="number" min="1" max="20" value="1" required></label>
-          <label>Expires at (your local time; optional)<input name="expiresAt" type="datetime-local"></label>
-          <button>Create license</button>
-        </form>
-        <div id="key-result" hidden><strong>Copy this license key now. It is shown only once.</strong><pre id="new-key"></pre><button id="hide-key">Hide key</button></div>
-      </section>
-      <section>
-        <h2>Licenses</h2>
-        <div class="actions"><button id="refresh-licenses">Refresh</button><button id="licenses-prev">Previous</button><button id="licenses-next">Next</button><span id="licenses-page"></span></div>
-        <div id="licenses" class="records"></div>
-        <h3>Edit a license</h3>
-        <form id="edit-license">
-          <label>License ID<input name="id" required></label>
-          <label>Customer label<input name="label" maxlength="120" placeholder="Leave unchanged"></label>
-          <label>Device limit<input name="maxDevices" type="number" min="1" max="20" placeholder="Leave unchanged"></label>
-          <label>New expiry (your local time)<input name="expiresAt" type="datetime-local"></label>
-          <label class="check"><input name="perpetual" type="checkbox"> Remove expiry</label>
-          <button>Update license</button>
-        </form>
-      </section>
-      <section>
-        <h2>Announcements</h2>
-        <form id="create-announcement">
-          <label>Title<input name="title" required maxlength="160"></label>
-          <label>Message<textarea name="message" required maxlength="4000" rows="3"></textarea></label>
-          <button>Publish announcement</button>
-        </form>
-        <button id="refresh-announcements">Refresh announcements</button>
-        <div id="announcements" class="records"></div>
-      </section>
-      <section>
-        <h2>Protected files</h2>
-        <p>Small files only: up to 256 KiB each and 2 MiB for the entire database.json. Use a release host for large downloads.</p>
-        <form id="upload-file">
-          <label>Product (or * for every license)<input name="product" value="arch" maxlength="80" required></label>
-          <label>File<input name="file" type="file" required></label>
-          <button>Upload file</button>
-        </form>
-        <button id="refresh-files">Refresh files</button>
-        <div id="files" class="records"></div>
-      </section>
-      <section>
-        <h2>Client reports</h2>
-        <p>Untrusted client telemetry. Do not automatically punish users based on these reports. Only the latest 200 reports are retained in the current JSON file.</p>
-        <div class="actions"><button id="refresh-reports">Refresh</button><button id="reports-prev">Previous</button><button id="reports-next">Next</button><span id="reports-page"></span></div>
-        <div id="reports" class="records"></div>
-      </section>
-    </div>
-  </main>
-  <footer>No third-party scripts. No credentials in browser storage. Disconnect when finished.</footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARCH Control</title>
+    <meta name="description" content="Admin dashboard for the ARCH licensing API, reports, announcements, protected files, and service configuration." />
+    <meta property="og:title" content="ARCH Control" />
+    <meta property="og:description" content="Admin dashboard for the ARCH licensing API, reports, announcements, protected files, and service configuration." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" crossorigin src="/assets/index-8g2zzrtU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D8LWhEUz.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
 
