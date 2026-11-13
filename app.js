@@ -172,3 +172,4 @@ for (const [name, load] of [['licenses', licenses], ['reports', reports]]) {
 click('refresh-announcements', announcements);
 click('refresh-files', files);
 window.addEventListener('pagehide', disconnect);
+
